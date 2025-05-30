@@ -5,13 +5,13 @@ from supabase import create_client
 from datetime import datetime, timedelta
 
 # --- Configuración ---
-ACCESS_TOKEN = 'EACG4WGYXqIcBO043eX4gUfeTAmeoeiGEvh8PzhxTC4RCCNaGXWZC3bs7H3TocRwUf6KqWwvdveDSPqSVybZAZBwBJwzi0Fp9zLRtmFvqcNTl0X2fWWfsQQ8Y856N1wwcrBwuZAritZCp75v5TsSyTxXO5ecPIDIBGOrfZAUxs3sZAoNYe6PoICNMt0dRZBwZD'
-AD_ACCOUNT_ID = 'act_1442495952786268'
-APP_ID = '9491364040910983'
-APP_SECRET = 'cfcb34ec40d36a7eb352d061362be5c7'
-SUPABASE_URL = 'https://zcwxocyebcmlzuoqxhhe.supabase.co'
-SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpjd3hvY3llYmNtbHp1b3F4aGhlIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0MjYzMjMyNywiZXhwIjoyMDU4MjA4MzI3fQ.3uygE9Pr9Zxe3-cva1RRhB8KyxHgm5QbdWA419Nv7tY'
-TABLE_NAME = 'mcc_meta_data'
+ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
+AD_ACCOUNT_ID = os.getenv('AD_ACCOUNT_ID')
+APP_ID = os.getenv('APP_ID')
+APP_SECRET = os.getenv('APP_SECRET')
+SUPABASE_URL = os.getenv('SUPABASE_URL')
+SUPABASE_KEY = os.getenv('SUPABASE_KEY')
+TABLE_NAME = os.getenv('TABLE_NAME')
 
 # Inicializar Facebook API
 FacebookAdsApi.init(APP_ID, APP_SECRET, ACCESS_TOKEN)
