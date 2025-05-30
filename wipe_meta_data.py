@@ -1,8 +1,8 @@
 from supabase import create_client, Client
 
 # Supabase setup
-SUPABASE_URL = 'https://zcwxocyebcmlzuoqxhhe.supabase.co'
-SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpjd3hvY3llYmNtbHp1b3F4aGhlIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0MjYzMjMyNywiZXhwIjoyMDU4MjA4MzI3fQ.3uygE9Pr9Zxe3-cva1RRhB8KyxHgm5QbdWA419Nv7tY'
+SUPABASE_URL = os.getenv('SUPABASE_URL')
+SUPABASE_KEY = os.getenv('SUPABASE_KEY')
 supabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Ask for confirmation
