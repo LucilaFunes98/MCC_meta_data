@@ -2,6 +2,7 @@
 import streamlit as st
 st.set_page_config(page_title="McCain Campaign Dashboard", layout="wide")
 
+import os
 import pandas as pd
 import plotly.graph_objects as go
 from supabase import create_client
