@@ -4,6 +4,7 @@ st.set_page_config(page_title="McCain Campaign Dashboard", layout="wide")
 
 import os
 from dotenv import load_dotenv
+import streamlit as st
 import pandas as pd
 import plotly.graph_objects as go
 from supabase import create_client
@@ -12,9 +13,9 @@ import numpy as np
 load_dotenv()
 
 # Configuración
-SUPABASE_URL = os.getenv('SUPABASE_URL')
-SUPABASE_KEY = os.getenv('SUPABASE_KEY')
-TABLE_NAME = os.getenv('TABLE_NAME')
+SUPABASE_URL = st.secrets["general"]["SUPABASE_URL"]
+SUPABASE_KEY = st.secrets["general"]["SUPABASE_KEY"]
+TABLE_NAME = st.secrets["general"]["TABLE_NAME"]
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Sidebar para seleccionar la página
