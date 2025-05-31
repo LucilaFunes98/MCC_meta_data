@@ -4,10 +4,9 @@ from facebook_business.adobjects.adaccount import AdAccount
 from facebook_business.adobjects.adsinsights import AdsInsights
 
 # Meta API credentials
-access_token = 'EACG4WGYXqIcBO043eX4gUfeTAmeoeiGEvh8PzhxTC4RCCNaGXWZC3bs7H3TocRwUf6KqWwvdveDSPqSVybZAZBwBJwzi0Fp9zLRtmFvqcNTl0X2fWWfsQQ8Y856N1wwcrBwuZAritZCp75v5TsSyTxXO5ecPIDIBGOrfZAUxs3sZAoNYe6PoICNMt0dRZBwZD'
-ad_account_id = 'act_1442495952786268'
-app_id = '9491364040910983'
-app_secret = 'cfcb34ec40d36a7eb352d061362be5c7'
+access_token = os.getenv('ACCESS_TOKEN')
+app_id = os.getenv('APP_ID')
+app_secret = os.getenv('APP_SECRET')
 
 FacebookAdsApi.init(app_id, app_secret, access_token)
 

@@ -2,15 +2,19 @@
 import streamlit as st
 st.set_page_config(page_title="McCain Campaign Dashboard", layout="wide")
 
+import os
+from dotenv import load_dotenv
 import pandas as pd
 import plotly.graph_objects as go
 from supabase import create_client
 import numpy as np
 
+load_dotenv()
+
 # Configuración
-SUPABASE_URL = 'https://zcwxocyebcmlzuoqxhhe.supabase.co'
-SUPABASE_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inpjd3hvY3llYmNtbHp1b3F4aGhlIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0MjYzMjMyNywiZXhwIjoyMDU4MjA4MzI3fQ.3uygE9Pr9Zxe3-cva1RRhB8KyxHgm5QbdWA419Nv7tY'
-TABLE_NAME = 'mcc_meta_data'
+SUPABASE_URL = os.getenv('SUPABASE_URL')
+SUPABASE_KEY = os.getenv('SUPABASE_KEY')
+TABLE_NAME = os.getenv('TABLE_NAME')
 supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 # Sidebar para seleccionar la página
