@@ -1,0 +1,38 @@
+name: Actualizar datos de MCC automáticamente
+
+on:
+  schedule:
+    - cron: '0 * * * *'  # Esto se ejecuta cada hora
+  workflow_dispatch:      # Permite lanzarlo manualmente si quieres
+
+jobs:
+  update-data:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout del repositorio
+      uses: actions/checkout@v4
+
+    - name: Configurar Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Instalar dependencias
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Configurar secrets como variables de entorno
+      run: |
+        echo "ACCESS_TOKEN=${{ secrets.ACCESS_TOKEN }}" >> $GITHUB_ENV
+        echo "AD_ACCOUNT_ID=${{ secrets.AD_ACCOUNT_ID }}" >> $GITHUB_ENV
+        echo "APP_ID=${{ secrets.APP_ID }}" >> $GITHUB_ENV
+        echo "APP_SECRET=${{ secrets.APP_SECRET }}" >> $GITHUB_ENV
+        echo "SUPABASE_URL=${{ secrets.SUPABASE_URL }}" >> $GITHUB_ENV
+        echo "SUPABASE_KEY=${{ secrets.SUPABASE_KEY }}" >> $GITHUB_ENV
+        echo "TABLE_NAME=${{ secrets.TABLE_NAME }}" >> $GITHUB_ENV
+
+    - name: Ejecutar script para actualizar datos
+      run: |
+        python fetch_meta_data.py
